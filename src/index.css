@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+body {
+  background-color: rgb(2, 2, 39);
+  color: white;
+}
+
+.shadow {
+  box-shadow: 2px 0px 1px 2px gray;
+}
+
+i {
+  color: white;
+}
+
+.box::-webkit-scrollbar {
+  width: 0;
+}
+
+.link {
+  padding: 5px 10px;
+  margin: 10px 0;
+  box-shadow: 2px 2px 4px white;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.link:hover {
+  border: red;
+  box-shadow: 2px 2px 4px red;
+  color: red;
+}
+
+.link:hover i {
+  transition: all 0.3s ease-in;
+  color: red;
+}
+
+.active {
+  box-shadow: 2px 2px 4px transparent;
+  background-color: red;
+  transform: scale(1.1);
+}

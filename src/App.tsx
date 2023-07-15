@@ -1,8 +1,9 @@
-import Layout from "antd/es/layout/layout";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Category from "./Pages/Category";
 import Chanel from "./Pages/Chanel";
+import Detel from "./Pages/Detel";
+import Layout from "./Layouts";
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categ/:categ" element={<Category />} />
-        <Route path="/detel/:id" />
-        <Route path="/chanel/chan" element={<Chanel />} />
+        <Route path="/detel/:id" element={<Detel />} />
+        <Route path="/chanel/:chan" element={<Chanel />} />
       </Routes>
     </Layout>
   );
