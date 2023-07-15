@@ -15,6 +15,7 @@ const Sadbar = () => {
     <div className="px-5 mt-[80px] flex gap-4 overflow-auto box">
       {Categories.map((e: saidbar) => (
         <NavLink
+          key={e.name}
           style={{ borderRadius: "12px" }}
           className={"flex gap-3  bg-slate-900 text-white link"}
           to={`categ/${e.name}`}
