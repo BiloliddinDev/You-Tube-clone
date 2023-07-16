@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetData } from "../../Hooks";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Cart from "../../Components/Cart";
 import { queryClient } from "../../main";
 
@@ -39,30 +39,25 @@ export interface categType {
 }
 
 const Category = () => {
-  const [data, setData] = useState([]);
-  const { categ } = useParams();
+  const [searchparam] = useSearchParams();
 
   const { data: datalar } = useGetData({
-    keys: ["categ"],
-    url: `/search?part=snippet&q=${categ}`,
+    keys: [`categ/${searchparam.get("categ")}`],
+    url: `/search?part=snippet&q=${searchparam.get("categ")}`,
   });
 
-  useEffect(() => {
-    queryClient.invalidateQueries(["categ"]);
-  }, [categ]);
+  useEffect(() => {}, [searchparam]);
 
   return (
     <div>
       <div className="grid grid-cols-4 gap-4">
-        {datalar?.items?.map((e: categType) => (
-          <>
-            {/* {console.log(e)} */}
-            <Cart
-              image={e?.snippet?.thumbnails?.medium?.url}
-              title={e?.snippet?.title?.slice(0, 30)}
-              desc={e?.snippet?.description}
-            />
-          </>
+        {datalar?.items?.map((e: categType, i: number) => (
+          <Cart
+            key={i}
+            image={e?.snippet?.thumbnails?.medium?.url}
+            title={e?.snippet?.title?.slice(0, 30)}
+            desc={e?.snippet?.description}
+          />
         ))}
       </div>
     </div>

@@ -1,14 +1,15 @@
 import React from "react";
 import { categType } from "../../Pages/Category";
+import { useEffect } from "react";
 
 const Cart = ({
   image,
   title,
   desc,
 }: {
-  image: string;
-  title: string;
-  desc: string;
+  image: string | undefined;
+  title: string | undefined;
+  desc: string | undefined;
 }) => {
   return (
     <div className="flex flex-col justify-center items-start w-[350px] border">

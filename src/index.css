@@ -50,9 +50,3 @@ i {
   transition: all 0.3s ease-in;
   color: red;
 }
-
-.active {
-  box-shadow: 2px 2px 4px transparent;
-  background-color: red;
-  transform: scale(1.1);
-}

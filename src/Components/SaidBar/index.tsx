@@ -18,7 +18,7 @@ const Sadbar = () => {
           key={e.name}
           style={{ borderRadius: "12px" }}
           className={"flex gap-3  bg-slate-900 text-white link"}
-          to={`categ/${e.name}`}
+          to={`categ?categ=${e.name}`}
         >
           {e.icon} {e.name}
         </NavLink>

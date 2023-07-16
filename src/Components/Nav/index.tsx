@@ -9,7 +9,7 @@ const Nav = () => {
   const handleChange = (value: string) => console.log(value);
   const [mode, setMode] = useState(true);
   return (
-    <div className="fixed top-0 left-0 w-full bg-bgBlask py-[16px] shadow">
+    <div className="fixed z-30 top-0 left-0 w-full bg-bgBlask py-[16px] shadow">
       <div className="flex items-center gap-1 container justify-between">
         <div className="flex items-center gap-2">
           <img width={50} height={50} src={image} alt="" />
