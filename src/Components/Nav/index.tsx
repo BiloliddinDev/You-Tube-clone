@@ -1,13 +1,17 @@
 import image from "../../Image/Logo.png";
-import { AudioOutlined } from "@ant-design/icons";
 import { Input, Select, Button } from "antd";
 const { Search } = Input;
 import { useState } from "react";
+import { useSearch } from "../../Zustand";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
-  const onSearch = (value: string) => console.log(value);
+  const { searchvalue } = useSearch();
+
+  const onSearch = (value: string) => searchvalue(value);
   const handleChange = (value: string) => console.log(value);
   const [mode, setMode] = useState(true);
+
   return (
     <div className="fixed z-30 top-0 left-0 w-full bg-bgBlask py-[16px] shadow">
       <div className="flex items-center gap-1 container justify-between">

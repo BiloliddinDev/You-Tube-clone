@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useGetData } from "../../Hooks";
-import { useParams, useSearchParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import Cart from "../../Components/Cart";
-import { queryClient } from "../../main";
+import { useSearch } from "../../Zustand";
 
 export interface categType {
   id: {
@@ -39,11 +39,14 @@ export interface categType {
 }
 
 const Category = () => {
+  const { searchstate } = useSearch();
   const [searchparam] = useSearchParams();
 
   const { data: datalar } = useGetData({
-    keys: [`categ/${searchparam.get("categ")}`],
-    url: `/search?part=snippet&q=${searchparam.get("categ")}`,
+    keys: [`categ/${searchstate ? searchstate : searchparam.get("categ")} `],
+    url: `/search?part=snippet&q=${
+      searchstate ? searchstate : searchparam.get("categ")
+    }`,
   });
 
   useEffect(() => {}, [searchparam]);
@@ -52,12 +55,14 @@ const Category = () => {
     <div>
       <div className="grid grid-cols-4 gap-4">
         {datalar?.items?.map((e: categType, i: number) => (
-          <Cart
-            key={i}
-            image={e?.snippet?.thumbnails?.medium?.url}
-            title={e?.snippet?.title?.slice(0, 30)}
-            desc={e?.snippet?.description}
-          />
+          <Link to={`/detel/${e.id.videoId}`}>
+            <Cart
+              key={i}
+              image={e?.snippet?.thumbnails?.medium?.url}
+              title={e?.snippet?.title?.slice(0, 30)}
+              desc={e?.snippet?.description}
+            />
+          </Link>
         ))}
       </div>
     </div>
