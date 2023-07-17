@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const instance = axios.create({
   baseURL: "https://youtube-v31.p.rapidapi.com",
   timeout: 10000,
