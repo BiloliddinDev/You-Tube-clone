@@ -9,7 +9,7 @@ const Cart = ({
 }: {
   image: string | undefined;
   title: string | undefined;
-  desc: string | undefined;
+  desc?: string | undefined;
 }) => {
   return (
     <div className="flex flex-col justify-center items-start w-[350px] border">
