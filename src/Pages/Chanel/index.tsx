@@ -40,10 +40,10 @@ const Chanel = () => {
 
 
   const req2 =()=>{
-    return instance.get(`/channels?part=snippet&id`)
+    return instance.get(`/channels?part=snippet&id=UC3IZKseVpdzPSBaWxBxundA`)
 }
 const chanel = useQuery({ queryKey: ['chanel'], queryFn: req2 })
-console.log(chanel);
+console.log(chanel?.data?.data?.items?.id  );
 
 
 
@@ -57,6 +57,7 @@ console.log(chanel);
               <img className="ch_img" src="https://i1.sndcdn.com/avatars-le63DhyyPBENtQto-gJJFmg-t500x500.jpg" alt="#" />
               <h2>Saad lamjarred</h2>
               <h3>14dkdjhdhd</h3>
+              <h3>{chanel?.data?.data?.items?.snippet?.title }</h3>
             </div>
           </div>
 
